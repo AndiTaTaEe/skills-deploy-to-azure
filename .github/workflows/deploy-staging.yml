@@ -6,7 +6,7 @@ on:
 
 env:
   IMAGE_REGISTRY_URL: ghcr.io
-  DOCKER_IMAGE_NAME: AndiTaTaEe-azure-ttt
+  DOCKER_IMAGE_NAME: anditataee-azure-ttt
   AZURE_WEBAPP_NAME: AndiTaTaEe-ttt-app
 
 jobs:
@@ -84,7 +84,7 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{env.AZURE_WEBAPP_NAME}}
-          images: ${{env.IMAGE_REGISTRY_URL}}/${{ github.repository }}/${{env.DOCKER_IMAGE_NAME}}:${
+          images: ${{env.IMAGE_REGISTRY_URL}}/anditataee/skills-deploy-to-azure/${{env.DOCKER_IMAGE_NAME}}:${{ github.sha }}
 
       - name: Azure logout via Azure CLI
         uses: azure/CLI@v2
